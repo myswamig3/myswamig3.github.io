@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="color-scheme" content="dark" />
+  <title>SwamiG Institute 70-888-SWAMI — Ifá • Isésé • Orisha | Divination, Initiation & Spiritual Education</title>
+  <meta name="description" content="Call 70-888-SWAMI. SwamiG Institute offers Ifá • Isésé • Orisha divination, priesthood initiations, rites of passage, and spiritual education. Michigan nonprofit — 501(c)(3) recognition pending." />
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --ink:#eaeaf2;
+      --muted:#b5b5c4;
+      --accent:#bb66ff;
+      --accent-muted:rgba(187,102,255,0.18);
+      --accent-lineage:rgba(102,255,178,.35);
+      --radius:20px;
+      --card:rgba(30,30,40,.95);
+      --border:rgba(255,255,255,.12);
+      --ring:rgba(187,102,255,.35);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{scroll-behavior:smooth;height:100%}
+    body{
+      margin:0;min-height:100vh;display:flex;flex-direction:column;
+      background:radial-gradient(1200px 600px at 10% -5%, rgba(187,102,255,.14), transparent 60%),
+                 radial-gradient(900px 500px at 100% 0%, rgba(102,255,178,.10), transparent 60%),
+                 var(--bg);
+      color:var(--ink);
+      font:400 16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin-inline:auto; padding-inline:12px}
+    .noticebar{position:relative;width:100%;text-align:center;font-size:12px;color:#d9c6ff;background:rgba(187,102,255,.12);border-bottom:1px solid rgba(187,102,255,.25);padding:6px 12px;}
+    .notice-center{display:inline-block}
+    .notice-right{position:absolute;right:12px;top:6px;font-size:12px}
+    .notice-right a{color:#d9c6ff;text-decoration:none}
+    .notice-right a:hover{color:var(--accent)}
+    .top-cards-wrap{background:rgba(11,11,15,.85);border-bottom:1px solid rgba(255,255,255,.08)}
+    .top-cards{max-width:var(--max);margin:0 auto;padding:8px 10px;display:grid;gap:8px}
+    @media(min-width:900px){.top-cards{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}}
+    @media(max-width:899px){.top-cards{grid-template-columns:1fr 1fr}}
+    .top-card{
+      position:relative;border-radius:10px;padding:8px;border:1px solid var(--border);
+      color:var(--ink);background:linear-gradient(145deg,var(--card),rgba(18,18,25,.95));
+      box-shadow:0 1px 3px rgba(0,0,0,.25);
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease, outline-color .2s ease;
+      display:block;text-decoration:none;
+    }
+    .top-card:hover{transform:translateY(-2px) scale(1.005);border-color:rgba(255,255,255,.22);outline:2px solid var(--ring);}
+    .top-card h3{margin:0 0 4px;font:700 11px/1.2 system-ui}
+    .top-card p{margin:0 0 6px;color:var(--muted);font-size:10px;line-height:1.3}
+    .top-cards .top-card:nth-child(1):hover{box-shadow:0 0 8px rgba(187,102,255,.55)} /* Mission */
+    .top-cards .top-card:nth-child(2):hover{box-shadow:0 0 8px var(--accent-lineage)} /* Lineage */
+    .top-cards .top-card:nth-child(3):hover{box-shadow:0 0 8px rgba(187,102,255,.55)}
+    .top-cards .top-card:nth-child(4):hover{box-shadow:0 0 8px rgba(102,187,255,.50)}
+    .top-cards .top-card:nth-child(5):hover{box-shadow:0 0 8px rgba(255,102,187,.50)}
+    .top-cards .top-card:nth-child(6):hover{box-shadow:0 0 8px rgba(187,255,102,.50)}
+    .top-cards .top-card:nth-child(7):hover{box-shadow:0 0 8px rgba(187,102,255,.55)}
+    .wrap{flex:1;display:flex;justify-content:center;align-items:center;padding:24px 20px}
+    .hero{display:flex;justify-content:center;align-items:center;text-align:center;width:100%}
+    .hero-block{max-width:640px}
+    .logo{width:min(150px,38vw);aspect-ratio:1/1;border-radius:50%;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,.1);box-shadow:0 0 12px rgba(187,102,255,.30);margin:0 auto 18px;background:#111;}
+    .logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    h1{margin:0;font-weight:800;font-size:36px;line-height:1.08;letter-spacing:.3px}
+    @media(min-width:960px){h1{font-size:42px}}
+    .tag{color:var(--muted);font-size:15px;margin-top:10px}
+    .badge{color:#f4d3ff;margin-top:10px;font-size:13px}
+    footer{margin-top:40px}
+    .footer{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;border-top:1px dashed rgba(255,255,255,.15);padding:16px 0;color:var(--muted)}
+    .micro-note{font-size:11px;text-align:center;color:rgba(200,180,255,.6);margin:8px 0 24px}
+    .dropdown{position:relative}
+    .dropdown-toggle{all:unset;display:block;cursor:pointer}
+    .dropdown .menu{list-style:none;margin:0;padding:6px 0;position:absolute;top:100%;left:0;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.45);display:none;min-width:180px;z-index:9999;}
+    .dropdown[aria-expanded="true"] .menu{display:block}
+    .menu a{display:block;padding:8px 12px;font-size:13px;color:var(--ink);text-decoration:none}
+    .menu a:hover{background:rgba(187,102,255,.15);color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="noticebar"><div class="notice-center">Call <strong>70-888-SWAMI</strong> • Michigan nonprofit — 501(c)(3) recognition pending</div></div>
+
+  <div class="top-cards-wrap">
+    <div class="top-cards">
+      <a class="top-card" href="missionsgi/index.html">
+        <h3>0 — Mission</h3>
+        <p>Our guiding vision and purpose</p>
+      </a>
+
+      <a class="top-card" href="lineagesgi/index.html">
+        <h3>1 — Lineage</h3>
+        <p>Anke–Karade Lineage</p>
+      </a>
+
+      <a class="top-card" href="ilekesgi/index.html">
+        <h3>2 — Ilekes</h3>
+        <p>Coursework, rituals, consecrated beads &amp; support</p>
+      </a>
+
+      <a class="top-card" href="warriorsgi/index.html">
+        <h3>3 — Warriors</h3>
+        <p>Èshù • Ògún • Òchóòsì • Òsun</p>
+      </a>
+
+      <a class="top-card" href="handsgi/index.html">
+        <h3>4 — Hand of Ifá</h3>
+        <p>Ìkín consecration / Ì&#7779;&#7865;&#768;&#7779;e</p>    
+      </a>
+
+      <a class="top-card" href="priestsgi/index.html">
+        <h3>5 — Orisha Initiations</h3>
+        <p>Priesthood pathways &amp; ceremonies</p>
+      </a>
+
+      <div class="top-card dropdown" id="divination" aria-expanded="false">
+        <div class="dropdown-toggle" role="button" tabindex="0" aria-haspopup="true" aria-controls="divination-menu">
+          <h3>6 — Divination</h3>
+          <p>How to Divine classes w/ assignments</p>
+        </div>
+        <ul class="menu" id="divination-menu">
+          <li><a href="4cowrieshell.com/index.html">4 Cowrie</a></li>
+          <li><a href="orishapelesgi/index.html">Orisha Pele</a></li>
+          <li><a href="obiorishasgi/index.html">Obi Orisha</a></li>
+          <li><a href="opelesgi/index.html">Opele</a></li>
+          <li><a href="16cowriesgi/index.html">Merindilogun</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header class="hero"><div class="hero-block">
+      <a class="logo" href="#"><img src="SwamiG.gif" alt="SwamiG logo"></a>
+      <h1>SwamiG Institute</h1>
+      <p class="tag">Ifá • Isésé • Orisha — Spiritual Education, Rites &amp; Divination</p>
+      <p class="badge">Michigan nonprofit • <strong>501(c)(3) recognition pending — $DrSwamiG</strong></p>
+    </div></header>
+  </div>
+
+  <div align="center"><h2><font color="#ff1fc4">"Lessons of enlightenment for the Diaspora"</font></h2></div>
+
+  <footer class="container">
+    <section class="footer">
+      <div>
+        <div class="quote">“Extending Royal Legacy. On the shoulders of enlightened ancestors.”</div>
+        <div class="small">© <span id="year"></span> SwamiG Institute • SwamiGInstitute.com</div>
+      </div>
+    </section>
+    <div class="micro-note">Governed by [(Herukhuti(+)/HetHeru(-)) (Ogbe/Okanran(+) Ogbe)] <a href="jtpsgi/index.html">.</a></div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.getElementById('divination');
+      const toggle = root.querySelector('.dropdown-toggle');
+      const menu = document.getElementById('divination-menu');
+      const set=(open)=>{root.setAttribute('aria-expanded',open);toggle.setAttribute('aria-expanded',open);}
+      toggle.addEventListener('click',()=>set(root.getAttribute('aria-expanded')!=='true'));
+      document.getElementById('year').textContent=new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
