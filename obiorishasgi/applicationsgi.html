@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Obi Orisha Application â€” SwamiG InstituteÂ²</title>
+  <link rel="icon" href="https://swamiginstitute.com/SwamiG.gif" type="image/gif" />
+  <style>
+    :root{
+      --bg:#11111a;
+      --ink:#eaeaf2;
+      --muted:#b5b5c4;
+      --accent:#bb66ff;
+      --gold:#e0c878;
+    }
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+      margin:0;
+      padding:0;
+      text-align:center;
+    }
+    header img{margin-top:20px;}
+    form{
+      max-width:600px;
+      margin:40px auto;
+      padding:20px;
+      border:1px solid var(--muted);
+      border-radius:16px;
+      text-align:left;
+    }
+    label{display:block;margin-top:15px;color:var(--gold);}
+    input,textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid var(--gold);
+      border-radius:8px;
+      background:#1a1a22;
+      color:var(--ink);
+      font-size:16px;
+    }
+    button{
+      margin-top:20px;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 20px;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    footer{
+      margin-top:60px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    footer span{opacity:0.35;font-size:12px;}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="https://swamiginstitute.com" title="SwamiG Institute">
+      <img src="https://swamiginstitute.com/SwamiG.gif" width="70" height="70" alt="SwamiG Institute Logo">
+    </a>
+    <h1>SwamiG InstituteÂ²</h1>
+    <p>Modules of Enlightenment for the Diaspora of North America</p>
+    <p><em>IfÃ¡ â€¢ IsÃ©sÃ© â€¢ Orisha | Divination, Initiation & Spiritual Education</em></p>
+  </header>
+
+  <form id="appForm">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Phone</label>
+    <input type="text" name="phone">
+
+    <label>Orisha / Spiritual Path</label>
+    <input type="text" name="path">
+
+    <label>Message / Comments</label>
+    <textarea name="message" rows="4"></textarea>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <footer>
+    Â© SwamiG InstituteÂ² â€” <em>Extending Royal Legacy</em><br>
+    Standing on the Shoulders of Enlightened Ancestors<br>
+    <span>Intuited by Irosun Ofun Ire</span><br>
+    ðŸ“© Contact: <a href="mailto:app@swamiginstitute.com" style="color:var(--gold)">app@swamiginstitute.com</a>
+  </footer>
+
+  <script>
+    document.getElementById("appForm").addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const res = await fetch("https://swamig-application.fasuuruate.workers.dev", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(data)
+      });
+      if(res.ok) window.location.href = "thankyou.html";
+      else alert("There was an issue submitting your application.");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+kv_namespaces = [
+  { binding = "SWAMIG_APPLICATIONS", id = "15d3191d21504c12ae88679a8f1fc1f8" }
+]

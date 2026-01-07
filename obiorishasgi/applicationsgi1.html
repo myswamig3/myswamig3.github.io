@@ -1,0 +1,77 @@
+export default {
+  async fetch(request) {
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      });
+    }
+
+    if (request.method !== "POST") {
+      return new Response("Method not allowed", { status: 405 });
+    }
+
+    try {
+      const formData = await request.formData();
+      const fields = Object.fromEntries(formData);
+
+      if (fields.website) {
+        return new Response("Spam detected", { status: 400 });
+      }
+
+      const studySelections = formData.getAll("study_interests").join(", ");
+
+      const bodyText = `
+?? New SwamiG Institute Application
+
+Legal Name: ${fields.legal_name || ""}
+Preferred Name: ${fields.preferred_name || ""}
+Email: ${fields.email || ""}
+Phone: ${fields.phone || ""}
+Role: ${fields.role || ""}
+Primary Orisha: ${fields.primary_orisha || ""}
+Lineage: ${fields.lineage || ""}
+Teacher: ${fields.teacher || ""}
+Initiation Date: ${fields.initiation_date || ""}
+Initiation Location: ${fields.initiation_location || ""}
+Study Interests: ${studySelections}
+Goals / Experience: ${fields.goals || ""}
+
+Submitted from https://swamiginstitute.com
+      `;
+
+      const mailData = {
+        personalizations: [{ to: [{ email: "app@swamiginstitute.com" }] }],
+        from: { email: "noreply@swamiginstitute.com", name: "SwamiG Institute Application" },
+        subject: "New Application Received",
+        content: [{ type: "text/plain", value: bodyText }],
+      };
+
+      const mailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(mailData),
+      });
+
+      if (!mailResponse.ok) throw new Error("Mail send failed");
+
+      return new Response(JSON.stringify({ success: true }), {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (err) {
+      return new Response(JSON.stringify({ error: err.message }), {
+        status: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+    }
+  },
+};
